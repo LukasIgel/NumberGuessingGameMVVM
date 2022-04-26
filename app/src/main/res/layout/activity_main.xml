@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.numberguessinggamemvvm.viewmodel.NumberGuessingGameViewModel" />
+    </data>
+    <androidx.appcompat.widget.LinearLayoutCompat
+
+        android:orientation="vertical" android:layout_height="match_parent" android:layout_width="match_parent">
+        <TextView
+            android:id="@+id/txtView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/klick_auf_groessere_zahl"
+            android:textSize="36sp"
+        ></TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/leftButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@{viewModel.numberLeft}"
+                android:onClick="@{()-> viewModel.onButtonClicked(0)}"
+                />
+
+            <Button
+                android:id="@+id/rightButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@{viewModel.numberRight}"
+                android:onClick="@{()-> viewModel.onButtonClicked(1)}"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.score}"
+            />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>
+
